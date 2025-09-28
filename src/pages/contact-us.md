@@ -155,6 +155,8 @@ content_blocks:
           colorFromGroup: primary
           ghostButton: false
           formSubmit: true
+        inboxKey: null
+        subject: null
     styles:
       color_group: primary
 _inputs:
