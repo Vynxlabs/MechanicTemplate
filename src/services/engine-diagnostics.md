@@ -58,6 +58,7 @@ hero:
       imageSizes: null
       class: null
       imageNumber: null
+      imageWidths: null
   styles:
     color_group: 57af1dbe-0f2e-43f8-8a78-3fc88e5754fe
     backgroundOpacity: 50
@@ -178,6 +179,7 @@ content_blocks:
         imageSizes: null
         class: null
         imageNumber: null
+        imageWidths: null
       buttons:
         - _bookshop_name: generic/button
           url: /contact/

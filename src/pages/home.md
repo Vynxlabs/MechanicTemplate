@@ -71,6 +71,7 @@ hero:
       imageSizes: null
       class: null
       imageNumber: null
+      imageWidths: null
   styles:
     color_group: primary
     headingRight: false
@@ -239,6 +240,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
             entryNumber: 0
           styles:
             color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
@@ -309,6 +311,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
           styles:
             color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
             colorFromGroup: background
@@ -351,6 +354,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
           styles:
             color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
             colorFromGroup: background

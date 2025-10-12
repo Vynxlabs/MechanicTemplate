@@ -81,6 +81,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
             link: null
           style:
             color_group: primary
@@ -97,6 +98,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
             link: null
           style:
             color_group: primary
@@ -113,6 +115,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
             link: null
           style:
             color_group: primary
@@ -129,6 +132,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
             link: null
           style:
             color_group: primary
@@ -145,6 +149,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
             link: null
           style:
             color_group: primary
@@ -161,6 +166,7 @@ content_blocks:
               imageSizes: null
               class: null
               imageNumber: null
+              imageWidths: null
             link: null
           style:
             color_group: primary
