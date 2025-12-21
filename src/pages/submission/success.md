@@ -45,7 +45,9 @@ hero:
       contrastColorGroup: null
       contrastAgainst: null
       textClassOverride: null
+    _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
   sectionId: null
+  _componentId: simpleHero-8c1dcda7-535f-4605-9e3c-86685737f008
 content_blocks: []
 _inputs:
   eleventyNavigation:

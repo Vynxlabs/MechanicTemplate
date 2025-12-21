@@ -45,6 +45,7 @@ hero:
             colorFromGroup: primary
             ghostButton: false
             formSubmit: false
+            _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
           - _bookshop_name: generic/button
             url: 'tel:[[st.contactInfo.phone]]'
             openInNewTab: false
@@ -53,6 +54,7 @@ hero:
             colorFromGroup: secondary
             ghostButton: false
             formSubmit: false
+            _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
         headingHierarchy: h2
       styles:
         contentAlignment: left
@@ -63,6 +65,7 @@ hero:
         contrastColorGroup: null
         contrastAgainst: null
         textClassOverride: null
+      _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
     image:
       _bookshop_name: generic/image
       imagePath: /assets/uploads/home/mechanic-crossed-arms.jpg
@@ -72,9 +75,11 @@ hero:
       class: null
       imageNumber: null
       imageWidths: null
+      _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
   styles:
     color_group: primary
     headingRight: false
+  _componentId: leftRightHero-00e94732-f654-4541-8b89-03731c6efd84
 content_blocks:
   - _bookshop_name: sections/textBreakReview
     content:
@@ -97,12 +102,14 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       usePersonImage: true
       reviews:
         - review: 49301fcb-2c3e-4143-b164-23a71185410c
         - review: 8dd4778d-24b7-424b-96f9-63cbb2cc8d80
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
+    _componentId: textBreakReview-9ec5a449-69e1-49ed-aa59-0349a4cde163
   - _bookshop_name: sections/servicesSection
     content:
       sectionId: null
@@ -124,10 +131,12 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       showNote: true
     styles:
       color_group: primary
       cardStyle: defaultCard
+    _componentId: servicesSection-d06c51f7-7385-4443-8423-400d3f52e2e9
   - _bookshop_name: sections/simpleCta
     content:
       sectionId: null
@@ -147,6 +156,7 @@ content_blocks:
               colorFromGroup: primary
               ghostButton: false
               formSubmit: false
+              _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
           headingHierarchy: h2
         styles:
           contentAlignment: center
@@ -157,8 +167,10 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
     styles:
       color_group: primary
+    _componentId: simpleCta-55aa4315-260d-4b9f-a7e6-f4c494799681
   - _bookshop_name: sections/sideBySideStandard
     content:
       sectionId: null
@@ -180,6 +192,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       entries:
         - _bookshop_name: generic/leftRight
           content:
@@ -232,6 +245,7 @@ content_blocks:
                 contrastColorGroup: null
                 contrastAgainst: null
                 textClassOverride: null
+              _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
             image:
               _bookshop_name: generic/image
               imagePath: /assets/uploads/professional-mechanic/two-mechanics.jpg
@@ -241,14 +255,17 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
             entryNumber: 0
           styles:
             color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
             colorFromGroup: background
+          _componentId: leftRight-eeb30bac-09e7-41ba-a9ab-424fd98ea4b8
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
       startImageRight: false
       fullWidth: true
+    _componentId: sideBySideStandard-f655a3f4-fd11-402d-9794-215be5328ad6
   - _bookshop_name: sections/mediaCards
     content:
       sectionId: null
@@ -270,6 +287,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       cards:
         - _bookshop_name: generic/mediaCards/defaultMediaCard
           content:
@@ -293,6 +311,7 @@ content_blocks:
                     colorFromGroup: accent
                     ghostButton: false
                     formSubmit: false
+                    _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
                 headingHierarchy: h2
               styles:
                 contentAlignment: left
@@ -303,6 +322,7 @@ content_blocks:
                 contrastColorGroup: null
                 contrastAgainst: null
                 textClassOverride: null
+              _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
             image:
               _bookshop_name: generic/image
               imagePath: /assets/uploads/oil-change-discount.jpg
@@ -312,9 +332,11 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
           styles:
             color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
             colorFromGroup: background
+          _componentId: defaultMediaCard-4b69bd88-fb9c-4f5e-bc9e-93df0deb3ba1
         - _bookshop_name: generic/mediaCards/defaultMediaCard
           content:
             heading:
@@ -336,6 +358,7 @@ content_blocks:
                     colorFromGroup: accent
                     ghostButton: false
                     formSubmit: false
+                    _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
                 headingHierarchy: h2
               styles:
                 contentAlignment: left
@@ -346,6 +369,7 @@ content_blocks:
                 contrastColorGroup: null
                 contrastAgainst: null
                 textClassOverride: null
+              _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
             image:
               _bookshop_name: generic/image
               imagePath: /assets/uploads/professional-mechanic/free-brake-inspection.jpg
@@ -355,11 +379,14 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
           styles:
             color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
             colorFromGroup: background
+          _componentId: defaultMediaCard-4b69bd88-fb9c-4f5e-bc9e-93df0deb3ba1
     styles:
       color_group: primary
+    _componentId: mediaCards-38a4f583-ed3a-4e2c-a58d-1dfb80c4c86e
   - _bookshop_name: sections/reviewCards
     content:
       sectionId: null
@@ -381,6 +408,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       usePersonImage: false
       reviews:
         - review: 49301fcb-2c3e-4143-b164-23a71185410c
@@ -403,6 +431,7 @@ content_blocks:
           colorFromGroup: background
     styles:
       color_group: primary
+    _componentId: reviewCards-e9ca074f-936e-4ba6-ba53-c94ee8c1d42b
   - _bookshop_name: sections/coloredCTA
     content:
       sectionId: null
@@ -422,6 +451,7 @@ content_blocks:
               colorFromGroup: background
               ghostButton: false
               formSubmit: false
+              _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
           headingHierarchy: h2
         styles:
           contentAlignment: center
@@ -432,10 +462,12 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
       card_color_group: primary
       colorFromGroup: primary
+    _componentId: coloredCTA-8dd43b36-5bc2-4b3b-912d-f1de497e8467
 _inputs:
   eleventyNavigation:
     hidden: removeFromNavigation

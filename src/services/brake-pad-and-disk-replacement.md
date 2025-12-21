@@ -40,6 +40,7 @@ hero:
             colorFromGroup: primary
             ghostButton: false
             formSubmit: false
+            _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
         headingHierarchy: h2
       styles:
         contentAlignment: center
@@ -50,6 +51,7 @@ hero:
         contrastColorGroup: null
         contrastAgainst: null
         textClassOverride: null
+      _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
     backgroundImage:
       _bookshop_name: generic/image
       imagePath: >-
@@ -60,9 +62,11 @@ hero:
       class: null
       imageNumber: null
       imageWidths: null
+      _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
   styles:
     color_group: 57af1dbe-0f2e-43f8-8a78-3fc88e5754fe
     backgroundOpacity: 50
+  _componentId: bannerHero-572788f2-29c0-43e7-84da-08b63db954f6
 content_blocks:
   - _bookshop_name: sections/featuresCenterImage
     content:
@@ -91,6 +95,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       cards:
         - heading:
             _bookshop_name: generic/heading
@@ -112,6 +117,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
         - heading:
             _bookshop_name: generic/heading
             content:
@@ -132,6 +138,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
         - heading:
             _bookshop_name: generic/heading
             content:
@@ -152,6 +159,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
         - heading:
             _bookshop_name: generic/heading
             content:
@@ -170,6 +178,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       image:
         _bookshop_name: generic/image
         imagePath: /assets/uploads/brake-pad-and-disk-replacement/car-brake-service.jpg
@@ -179,6 +188,7 @@ content_blocks:
         class: null
         imageNumber: null
         imageWidths: null
+        _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
       buttons:
         - _bookshop_name: generic/button
           url: /contact/
@@ -188,11 +198,13 @@ content_blocks:
           colorFromGroup: primary
           ghostButton: false
           formSubmit: false
+          _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
       card_color_group: primary
       cardBackground: false
       imageVisualInterest: none
+    _componentId: featuresCenterImage-03cb7e7e-2f8b-444d-bc8d-6543ef9ec720
   - _bookshop_name: sections/informationCards
     content:
       sectionId: null
@@ -214,6 +226,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       cards:
         - heading:
             _bookshop_name: generic/heading
@@ -235,6 +248,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
         - heading:
             _bookshop_name: generic/heading
             content:
@@ -255,6 +269,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
         - heading:
             _bookshop_name: generic/heading
             content:
@@ -275,6 +290,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
         - heading:
             _bookshop_name: generic/heading
             content:
@@ -295,6 +311,7 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
         - heading:
             _bookshop_name: generic/heading
             content:
@@ -315,10 +332,12 @@ content_blocks:
               contrastColorGroup: null
               contrastAgainst: null
               textClassOverride: null
+            _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
     styles:
       color_group: primary
       card_color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
       cardBackground: true
+    _componentId: informationCards-8b479207-cb46-43d4-935c-54de4e1f3dd0
   - _bookshop_name: sections/simpleTextBlock
     content:
       sectionId: null
@@ -340,6 +359,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       text:
         _bookshop_name: generic/textBlock
         text: >-
@@ -381,8 +401,10 @@ content_blocks:
           When it’s time to replace your brake pads and disks, choose
           \[\[st.name\]\] for expert service and unbeatable care. **Schedule
           your brake service today and drive with confidence!**
+        _componentId: textBlock-0b312f24-1509-4d49-991b-889f4d113886
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
+    _componentId: simpleTextBlock-1a5ab00c-5c73-435e-abf1-efdfaf30e675
   - _bookshop_name: sections/textBreakReview
     content:
       sectionId: null
@@ -404,11 +426,13 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       usePersonImage: true
       reviews:
         - review: b9353b86-3276-4bd5-9cf9-34d5113885b3
     styles:
       color_group: primary
+    _componentId: textBreakReview-9ec5a449-69e1-49ed-aa59-0349a4cde163
   - _bookshop_name: sections/simpleTextBlock
     content:
       sectionId: null
@@ -430,6 +454,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       text:
         _bookshop_name: generic/textBlock
         text: >-
@@ -453,8 +478,10 @@ content_blocks:
           **Q: How long does the service take?**<br>A: Most brake pad and disk
           replacements are completed within 1–2 hours, depending on the
           condition of your braking system.
+        _componentId: textBlock-0b312f24-1509-4d49-991b-889f4d113886
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
+    _componentId: simpleTextBlock-1a5ab00c-5c73-435e-abf1-efdfaf30e675
   - _bookshop_name: sections/coloredCTA
     content:
       sectionId: null
@@ -476,6 +503,7 @@ content_blocks:
               colorFromGroup: background
               ghostButton: false
               formSubmit: false
+              _componentId: button-5a055703-3064-4c18-af21-4c4ef537e497
           headingHierarchy: h2
         styles:
           contentAlignment: center
@@ -486,10 +514,12 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
     styles:
       color_group: primary
       card_color_group: primary
       colorFromGroup: primary
+    _componentId: coloredCTA-8dd43b36-5bc2-4b3b-912d-f1de497e8467
   - _bookshop_name: sections/servicesSection
     content:
       sectionId: null
@@ -511,10 +541,12 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       showNote: true
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
       cardStyle: defaultCard
+    _componentId: servicesSection-d06c51f7-7385-4443-8423-400d3f52e2e9
 _inputs:
   headCode:
     type: code

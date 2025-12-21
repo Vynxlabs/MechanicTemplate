@@ -45,7 +45,9 @@ hero:
       contrastColorGroup: null
       contrastAgainst: null
       textClassOverride: null
+    _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
   sectionId: null
+  _componentId: simpleHero-8c1dcda7-535f-4605-9e3c-86685737f008
 content_blocks:
   - _bookshop_name: sections/members
     content:
@@ -68,6 +70,7 @@ content_blocks:
           contrastColorGroup: null
           contrastAgainst: null
           textClassOverride: null
+        _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
       members:
         - _bookshop_name: generic/memberCards/defaultMemberCard
           content:
@@ -82,10 +85,12 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
             link: null
           style:
             color_group: primary
             colorFromGroup: background
+          _componentId: defaultMemberCard-e2405779-d231-4e9e-b771-f88b13a6b3fa
         - _bookshop_name: generic/memberCards/defaultMemberCard
           content:
             name: Jhon Smith
@@ -99,10 +104,12 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
             link: null
           style:
             color_group: primary
             colorFromGroup: background
+          _componentId: defaultMemberCard-e2405779-d231-4e9e-b771-f88b13a6b3fa
         - _bookshop_name: generic/memberCards/defaultMemberCard
           content:
             name: Jhon Smith
@@ -116,10 +123,12 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
             link: null
           style:
             color_group: primary
             colorFromGroup: background
+          _componentId: defaultMemberCard-e2405779-d231-4e9e-b771-f88b13a6b3fa
         - _bookshop_name: generic/memberCards/defaultMemberCard
           content:
             name: Jhon Smith
@@ -133,10 +142,12 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
             link: null
           style:
             color_group: primary
             colorFromGroup: background
+          _componentId: defaultMemberCard-e2405779-d231-4e9e-b771-f88b13a6b3fa
         - _bookshop_name: generic/memberCards/defaultMemberCard
           content:
             name: Jhon Smith
@@ -150,10 +161,12 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
             link: null
           style:
             color_group: primary
             colorFromGroup: background
+          _componentId: defaultMemberCard-e2405779-d231-4e9e-b771-f88b13a6b3fa
         - _bookshop_name: generic/memberCards/defaultMemberCard
           content:
             name: Jhon Smith
@@ -167,12 +180,15 @@ content_blocks:
               class: null
               imageNumber: null
               imageWidths: null
+              _componentId: image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2
             link: null
           style:
             color_group: primary
             colorFromGroup: background
+          _componentId: defaultMemberCard-e2405779-d231-4e9e-b771-f88b13a6b3fa
     styles:
       color_group: primary
+    _componentId: members-08b932da-6575-4a93-a176-bb10f9428326
 _inputs:
   eleventyNavigation:
     hidden: removeFromNavigation

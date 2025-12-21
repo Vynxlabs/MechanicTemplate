@@ -45,7 +45,9 @@ hero:
       contrastColorGroup: null
       contrastAgainst: null
       textClassOverride: null
+    _componentId: heading-89db575d-4583-4ff0-89a6-d6931371a72a
   sectionId: null
+  _componentId: simpleHero-8c1dcda7-535f-4605-9e3c-86685737f008
 content_blocks:
   - _bookshop_name: sections/blogCards
     content:
@@ -55,6 +57,7 @@ content_blocks:
     styles:
       color_group: 5c9075f8-80f9-4482-b041-91cffdfe02be
       cardStyle: default
+    _componentId: blogCards-337d0560-9b3d-4f91-b2db-f8d1dcb5b6e0
 _inputs:
   eleventyNavigation:
     hidden: removeFromNavigation
