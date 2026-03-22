@@ -98,6 +98,7 @@ content_blocks:
             required: true
             helperText: null
             _componentId: textInput-c93e5b13-0af4-4308-af72-64efb41b1579
+            hidden: false
           - _bookshop_name: generic/form/textInput
             label: Last Name
             placeholder: Doe
@@ -105,6 +106,7 @@ content_blocks:
             required: true
             helperText: null
             _componentId: textInput-c93e5b13-0af4-4308-af72-64efb41b1579
+            hidden: false
           - _bookshop_name: generic/form/emailInput
             label: Email
             id: b39e3543-1ffc-4a69-9857-48e97947377e
@@ -112,6 +114,7 @@ content_blocks:
             placeholder: jdoe@example.com
             helperText: null
             _componentId: emailInput-c344a86b-60c9-4329-bd1c-f2a5106f53d8
+            hidden: false
           - _bookshop_name: generic/form/phoneInput
             label: Phone
             id: fc5da902-d8d9-4c06-9595-75306232dfb9
@@ -119,6 +122,7 @@ content_blocks:
             placeholder: 123 456 7890
             helperText: null
             _componentId: phoneInput-4fdb4a87-dc2c-4070-9b11-7549f52d4abc
+            hidden: false
           - _bookshop_name: generic/form/textInput
             label: Vehicle year make model
             placeholder: 2016 Toyota Camry
@@ -126,6 +130,7 @@ content_blocks:
             required: true
             helperText: null
             _componentId: textInput-c93e5b13-0af4-4308-af72-64efb41b1579
+            hidden: false
           - _bookshop_name: generic/form/radioButtonGroup
             label: Preferred appointment time
             id: d69538e8-4907-409f-a64c-69e3caaaa47a
@@ -141,6 +146,7 @@ content_blocks:
             arrangement: stacked
             helperText: null
             _componentId: radioButtonGroup-63148dac-0764-4860-9ac9-c7a7ac73e665
+            hidden: false
           - _bookshop_name: generic/form/textAreaInput
             label: Message
             placeholder: ''
@@ -151,6 +157,7 @@ content_blocks:
               What service are you looking to receive, or describe your problem.
               The more information the better.
             _componentId: textAreaInput-6d11285a-22c9-4b5b-b45e-34f01182b65c
+            hidden: false
           - _bookshop_name: generic/form/fileInput
             label: Relevant photo
             id: ac958556-8fbb-4e22-b579-f862331e20f1
