@@ -186,10 +186,10 @@ const validateAndResolveParameters = (
           blueprintParameters[key][0]?.includes("bookshop:"))
       ) {
         blueprintParameters[key] = null; // Set to null to allow cloud cannon to handle inputs in the UI
+        usedParameters[key] = blueprintParameters[key]; // Add missing parameter
         if (key === "_uuid" && blueprintParameters[key] === null) {
           usedParameters[key] = crypto.randomUUID();
         }
-        usedParameters[key] = blueprintParameters[key]; // Add missing parameter
       } else {
         usedParameters[key] = blueprintParameters[key];
       }
