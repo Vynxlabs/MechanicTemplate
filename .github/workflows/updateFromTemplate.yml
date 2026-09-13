@@ -100,6 +100,9 @@ jobs:
       - name: run data sync
         run: npm run test:siteJsonSync
 
+      - name: Re-apply this site's locales to cloudcannon.config.yml
+        run: npm run rosey:sync
+
       - name: Commit changes
         run: |
           git add .
