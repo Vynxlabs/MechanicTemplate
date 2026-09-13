@@ -189,6 +189,12 @@ rich-text region that is already one translation, so its wrapper pipes the outpu
 through `roseyStrip`; `generic/notification` and `generic/styledText` carry no
 tags at all.
 
+**A post's markdown body is one translation.** `layouts/post.html` tags the
+`<article data-cms-edit="content">` with `roseyMarkdown: "post-body"` and the
+generated table of contents with `post-toc` (both TOC placements share the key).
+The per-post root on `<main>` keeps them unique, and snippets inside the body are
+already stripped, so nothing nests.
+
 **Keys are static, never derived from content.** A key is the `:`-joined chain of
 `data-rosey-root` / `data-rosey-ns` values above an element plus its own
 `data-rosey`, so a leaf key only has to be unique inside its own component. This
