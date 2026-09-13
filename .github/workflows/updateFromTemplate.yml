@@ -60,7 +60,7 @@ jobs:
                   "$file" == .github/* || \
                   "$file" == netlify/* || \
                   "$file" == src/_data-ref/* || \
-                  "$file" == src/_data/rosey.mjs \
+                  "$file" == src/_data/rosey.mjs || \
                   "$file" == src/_includes/* || \
                   "$file" == src/assets/styles/* || \
                   "$file" == src/filters/* || \
