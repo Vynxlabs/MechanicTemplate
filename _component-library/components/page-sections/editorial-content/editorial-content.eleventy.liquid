@@ -10,6 +10,7 @@
 {%- if content.heading -%}
   {%- capture headingBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ _uuid }}-heading"
 content:
     text: {{ content.heading | stringifyFilter }}
     level: h2
@@ -25,6 +26,7 @@ styles:
 {%- if content.content -%}
   {%- capture textBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ _uuid }}-content"
 content:
     text: {{ content.content | stringifyFilter }}
 styles:

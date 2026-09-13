@@ -12,6 +12,7 @@
 {%- if content.badge -%}
   {%- capture badgeBlock -%}
 _bookshop_name: building-blocks/core-elements/badge
+_uuid: "{{ _uuid }}-badge"
 content:
     text: {{ content.badge  }}
 styles:
@@ -26,6 +27,7 @@ styles:
 {%- if content.heading -%}
   {%- capture headingBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ _uuid }}-heading"
 content:
     text: {{ content.heading  }}
     level: h2
@@ -41,6 +43,7 @@ styles:
 {%- if content.description -%}
   {%- capture descBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ _uuid }}-description"
 content:
     text: {{ content.description  }}
 styles:
@@ -67,6 +70,7 @@ size: lg
     {%- assign firstTestimonial = content.testimonials | first -%}
     {%- capture testimonialBlock -%}
 _bookshop_name: building-blocks/core-elements/testimonial
+_uuid: "{{ firstTestimonial._uuid }}"
 content:
     text: {{ firstTestimonial.quote  }}
     authorName: {{ firstTestimonial.authorName  }}
@@ -86,6 +90,7 @@ styles:
       {%- comment -%} Build testimonial component {%- endcomment -%}
       {%- capture testimonialBlock -%}
 _bookshop_name: building-blocks/core-elements/testimonial
+_uuid: "{{ testimonial._uuid }}"
 content:
     text: {{ testimonial.quote  }}
     authorName: {{ testimonial.authorName  }}
@@ -115,7 +120,7 @@ styles:
       {%- comment -%} Wrap in grid-item {%- endcomment -%}
       {%- capture gridItemBlock -%}
 _bookshop_name: building-blocks/wrappers/grid/grid-item
-contentSections:
+gridContentSections:
     {{ cardObj | json | prepend: "[" | append: "]" }}
       {%- endcapture -%}
       {%- assign gridItemObj = gridItemBlock | ymlify -%}

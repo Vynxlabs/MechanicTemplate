@@ -32,6 +32,7 @@
   <div class="bg-{{color_group}}-backgroundcolor  text-{{color_group}}-textcolor">
     {% for entry in content.entries %}
       {% capture entryHeading %}
+          _uuid: "{{ entry.entry.heading._uuid }}"
           content:
               highlightEyebrow: {{entry.entry.heading.content.highlightEyebrow}}
               eyebrow: {{entry.entry.heading.content.eyebrow | stringifyFilter}}
@@ -85,6 +86,7 @@
       {% for entry in content.entries %}
         
         {% capture entryHeading %}
+          _uuid: "{{ entry.entry.heading._uuid }}"
           content:
               highlightEyebrow: {{entry.entry.heading.content.highlightEyebrow}}
               eyebrow: {{entry.entry.heading.content.eyebrow | stringifyFilter}}
@@ -125,6 +127,7 @@
 <div class="flex flex-col gap-20 lg:hidden">
   {% for entry in content.entries %}
     {% capture entryHeading %}
+        _uuid: "{{ entry.entry.heading._uuid }}"
         content:
             highlightEyebrow: {{entry.entry.heading.content.highlightEyebrow}}
             eyebrow: {{entry.entry.heading.content.eyebrow | stringifyFilter}}

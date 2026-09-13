@@ -10,6 +10,7 @@
 {%- if content.badge -%}
   {%- capture badgeBlock -%}
 _bookshop_name: building-blocks/core-elements/badge
+_uuid: "{{ _uuid }}-badge"
 content:
     text: {{ content.badge | stringifyFilter }}
 styles:
@@ -24,6 +25,7 @@ styles:
 {%- if content.heading -%}
   {%- capture headingBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ _uuid }}-heading"
 content:
     text: {{ content.heading | stringifyFilter }}
     level: h2
@@ -39,6 +41,7 @@ styles:
 {%- if content.description -%}
   {%- capture descBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ _uuid }}-description"
 content:
     text: {{ content.description | stringifyFilter }}
 styles:
@@ -70,6 +73,7 @@ size: lg
     {%- if card.title -%}
       {%- capture titleBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ card._uuid }}-title"
 content:
     text: {{ card.title | stringifyFilter }}
     level: h3
@@ -84,6 +88,7 @@ styles:
     {%- if card.description -%}
       {%- capture cardDescBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ card._uuid }}-description"
 content:
     text: {{ card.description | stringifyFilter }}
 styles:
@@ -96,6 +101,7 @@ styles:
     {%- if card.link and card.linkText -%}
       {%- capture linkBlock -%}
 _bookshop_name: building-blocks/core-elements/button
+_uuid: "{{ card._uuid }}-link"
 content:
     text: {{ card.linkText | stringifyFilter }}
     link: {{ card.link }}
@@ -112,6 +118,7 @@ styles:
     {%- if card.image.source -%}
       {%- capture imageBlock -%}
 _bookshop_name: building-blocks/core-elements/image
+_uuid: "{{ card._uuid }}-image"
 content:
     source: {{ card.image.source }}
     alt: {{ card.image.alt | stringifyFilter }}
@@ -143,7 +150,7 @@ styles:
     {%- comment -%} Wrap card in grid-item {%- endcomment -%}
     {%- capture gridItemBlock -%}
 _bookshop_name: building-blocks/wrappers/grid/grid-item
-contentSections:
+gridContentSections:
     {{ cardObj | json | prepend: "[" | append: "]" }}
     {%- endcapture -%}
     {%- assign gridItemObj = gridItemBlock | ymlify -%}

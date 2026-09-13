@@ -20,7 +20,8 @@ blueprint:
     heading: "Simple, Transparent Pricing"
     description: "Choose the plan that works best for you."
     plans:
-      - name: "Starter"
+      - _uuid:
+        name: "Starter"
         description: "Perfect for individuals"
         price: "$9"
         period: "/month"

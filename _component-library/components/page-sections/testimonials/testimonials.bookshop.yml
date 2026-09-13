@@ -20,7 +20,8 @@ blueprint:
     heading: "What Our Customers Say"
     description: "Don't just take our word for it."
     testimonials:
-      - quote: "This product has completely transformed our workflow."
+      - _uuid:
+        quote: "This product has completely transformed our workflow."
         authorName: "Sarah Johnson"
         authorTitle: "CEO, TechCorp"
         authorImage:

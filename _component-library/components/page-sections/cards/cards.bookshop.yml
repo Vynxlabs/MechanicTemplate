@@ -20,7 +20,8 @@ blueprint:
     heading: "Our Features"
     description: "Discover what makes us different."
     cards:
-      - image:
+      - _uuid:
+        image:
           source:
           alt:
         title: "Card Title"

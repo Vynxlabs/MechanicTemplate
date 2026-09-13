@@ -10,6 +10,7 @@
 {%- if content.badge -%}
   {%- capture badgeBlock -%}
 _bookshop_name: building-blocks/core-elements/badge
+_uuid: "{{ _uuid }}-badge"
 content:
     text: {{ content.badge | stringifyFilter }}
 styles:
@@ -24,6 +25,7 @@ styles:
 {%- if content.heading -%}
   {%- capture headingBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ _uuid }}-heading"
 content:
     text: {{ content.heading | stringifyFilter }}
     level: h2
@@ -39,6 +41,7 @@ styles:
 {%- if content.description -%}
   {%- capture descBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ _uuid }}-description"
 content:
     text: {{ content.description | stringifyFilter }}
 styles:
@@ -71,6 +74,7 @@ size: lg
     {%- if plan.highlighted -%}
       {%- capture highlightBadgeBlock -%}
 _bookshop_name: building-blocks/core-elements/badge
+_uuid: "{{ plan._uuid }}-badge"
 content:
     text: "Most Popular"
 styles:
@@ -86,6 +90,7 @@ styles:
     {%- if plan.name -%}
       {%- capture nameBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ plan._uuid }}-name"
 content:
     text: {{ plan.name | stringifyFilter }}
     level: h3
@@ -101,6 +106,7 @@ styles:
     {%- if plan.description -%}
       {%- capture planDescBlock -%}
 _bookshop_name: building-blocks/core-elements/simple-text
+_uuid: "{{ plan._uuid }}-description"
 content:
     text: {{ plan.description | stringifyFilter }}
 styles:
@@ -119,6 +125,7 @@ styles:
       {%- endif -%}
       {%- capture priceBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ plan._uuid }}-price"
 content:
     text: {{ priceText | stringifyFilter }}
     level: div
@@ -140,13 +147,18 @@ size: sm
 
     {%- comment -%} Add features list {%- endcomment -%}
     {%- if plan.features.size > 0 -%}
+      {%- comment -%}`features` is an array of bare strings, so each list item is built as the
+      {text} object the list component expects. There is no stable id to key on, so the text
+      itself is the key and editing a feature starts a new translation.{%- endcomment -%}
       {%- capture listBlock -%}
 _bookshop_name: building-blocks/core-elements/list
+_uuid: "{{ plan._uuid }}-features"
 content:
     items:
-        {{ plan.features | json }}
-styles:
-    variant: check
+{% for feature in plan.features %}        - _uuid: "{{ plan._uuid }}-feature-{{ feature | slug }}"
+          text: {{ feature | stringifyFilter }}
+{% endfor %}styles:
+    type: check
     alignX: start
       {%- endcapture -%}
       {%- assign listObj = listBlock | ymlify -%}
@@ -164,6 +176,7 @@ styles:
       {%- endif -%}
       {%- capture buttonBlock -%}
 _bookshop_name: building-blocks/core-elements/button
+_uuid: "{{ plan._uuid }}-button"
 content:
     text: {{ plan.buttonText | stringifyFilter }}
     link: {{ plan.buttonLink }}
@@ -193,7 +206,7 @@ styles:
     {%- comment -%} Wrap in grid-item {%- endcomment -%}
     {%- capture gridItemBlock -%}
 _bookshop_name: building-blocks/wrappers/grid/grid-item
-contentSections:
+gridContentSections:
     {{ cardObj | json | prepend: "[" | append: "]" }}
     {%- endcapture -%}
     {%- assign gridItemObj = gridItemBlock | ymlify -%}

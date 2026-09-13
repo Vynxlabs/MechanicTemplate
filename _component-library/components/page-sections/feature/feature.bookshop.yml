@@ -20,13 +20,16 @@ blueprint:
     heading: "Features"
     description: "Everything you need to succeed."
     features:
-      - icon: "bolt"
+      - _uuid:
+        icon: "bolt"
         title: "Lightning Fast"
         description: "Optimized performance for the best user experience."
-      - icon: "shield-check"
+      - _uuid:
+        icon: "shield-check"
         title: "Secure"
         description: "Enterprise-grade security built-in."
-      - icon: "sparkles"
+      - _uuid:
+        icon: "sparkles"
         title: "Beautiful Design"
         description: "Modern aesthetics that delight users."
   styles:

@@ -21,6 +21,7 @@
       <div class="{% if fullWidth != true %}mt-20 {% else %} {% if content.heading%}mt-0 md:mt-12 lg:mt-36{% endif %}{% endif %}">
         {% for entry in content.entries %}
           {% capture entryContent %}
+            _uuid: "{{ entry._uuid }}"
             content:
               heading: {{entry.content.heading | json}}
               image: {{entry.content.image | json}}

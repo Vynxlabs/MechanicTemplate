@@ -4,6 +4,7 @@
 {% assign columns = columns | default: 3 %}
 
 {% capture heading %}
+    _uuid: ""
     content:
         highlightEyebrow: {{content.highlightEyebrow}}
         eyebrow: {{content.eyebrow | stringifyFilter}}

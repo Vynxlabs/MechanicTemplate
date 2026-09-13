@@ -20,7 +20,8 @@ blueprint:
     heading: "Meet Our Team"
     description: "The people behind the magic."
     members:
-      - name: "John Smith"
+      - _uuid:
+        name: "John Smith"
         role: "CEO & Founder"
         bio:
         image:
