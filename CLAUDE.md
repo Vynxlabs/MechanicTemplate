@@ -109,6 +109,125 @@ Defined in `.eleventy.js`:
 - `happenings` / `upcomingHappenings` / `pastHappenings` - Events
 - `listings` - Marketplace listings
 
+### Internationalization (Rosey)
+
+Off by default, behind the `ROSEY_ENABLED` env var. With it unset the build output
+is byte-identical to a site without Rosey. Uses **Rosey v2** with the
+**CloudCannon Connector v2** (inline translating in the Visual Editor).
+
+All configuration lives in `/rosey.yml`: `default_language` (the language the
+site is AUTHORED in) and `languages` (the locales to translate into). Nothing in
+this codebase assumes English — a Spanish-first site sets `default_language: es`
+and lists `en` under `languages`, and English becomes a translation like any
+other. The original is served from `/`, every locale from `/<code>/`.
+
+Adding a locale:
+
+```bash
+# 1. add the code to `languages` in rosey.yml, then
+npm run rosey:sync   # creates src/rosey/locales/<code>.json + the data_config entry
+```
+
+`npm run rosey:sync` is the only thing that edits the generated `data_config`
+block in `cloudcannon.config.yml` (between `# rosey:locales:start/end` markers) —
+never edit that block by hand. Removing a language archives its locale file to
+`src/rosey/locales-disabled/` rather than deleting it, so translations survive.
+`npm run test:roseySync` fails if the three ever drift apart.
+
+Pipeline: `npm run eleventy` (tags content) then `npm run rosey`, which runs
+`rosey generate` → `rcc write-locales` → `rcc install-client` → `rosey build` →
+`rosey check`. Editors translate inline in the Visual Editor via the connector's
+locale switcher, or through the CloudCannon **Translations** collection
+(`src/rosey/locales/`).
+
+**Every new component that renders text must be tagged.** Use the filters in
+`src/filters/rosey-filters.js` — all return `""` when the flag is off, so tagging
+never changes default output:
+
+| Filter | Use for | Example |
+|---|---|---|
+| `roseyTag` | text that is the element's only content | `<h2{{ text \| roseyTag: "heading" }}>{{ text }}</h2>` |
+| `roseyWrap` | text sharing an element with sibling markup (icon, control) | `<a>{% icon %}{{ text \| roseyWrap: "label" }}</a>` |
+| `roseyMarkdown` | blocks rendered through `markdownify` (gives editors a rich-text input) | `<div{{ text \| roseyMarkdown: "body" }}>{{ text \| markdownify }}</div>` |
+| `roseyAttrs` | translatable attributes | `<img alt="{{ alt }}"{{ alt \| roseyAttrs: "alt", "alt" }}>` |
+| `roseyNs` | adding a namespace segment | `<section{{ _uuid \| roseyNs }}>` |
+| `roseyRoot` | opening a root namespace (also stops upward traversal) | `<footer{{ "common" \| roseyRoot }}>` |
+| `roseyStrip` | snippet wrappers: removes every tag from rendered output | `{{ output \| roseyStrip \| strip }}` |
+
+Prefer these filters over an `{% if rosey.enabled %}` block: `{% render %}` gives
+partials an isolated scope where `rosey.enabled` is invisible, but filters always
+resolve.
+
+**The filters exist twice and must stay identical.** The Visual Editor shows
+Bookshop's in-browser re-render, not `dist/`, and the RCC client reads
+`data-rosey*` from that live DOM. `src/filters/rosey-filters.js` (Eleventy) and
+`_component-library/bookshop/rosey.js` (Bookshop live) are both thin gates over
+`_component-library/bookshop/rosey-markup.js`. Add any new `rosey*` filter to
+both; `npm run test:roseyParity` fails otherwise.
+
+**Never put `roseyNs` / `roseyRoot` on the same element as `roseyTag` /
+`roseyMarkdown`.** Rosey (the build) applies an element's own namespace before
+building its key; the RCC editor client starts from the parent and ignores it, so
+the two save and read different keys. Put the namespace on an untagged ancestor
+(the component root is usually free), fold it into the key when the tagged element
+*is* the root (`{% capture k %}{{ _uuid }}:text{% endcapture %}<div{{ text |
+roseyMarkdown: k }}>`), or keep the root on the element and move the tag onto an
+inner span with `roseyWrap` (`<p{{ "common" | roseyRoot }}>{{ "Read more" |
+roseyWrap: "ui:read-more" }}</p>`). `npm run test:roseyKeys` checks the built site
+for this, for nested tags, and for one key carrying two different strings.
+
+**One key, one string.** A component included several times as a sub-field
+(`generic/textBlock` for a heading's eyebrow / headline / description) must get a
+distinct key per include and must not inherit the parent's `_uuid` a second time:
+`{% bookshop "generic/textBlock" text: content.headline _uuid: "" roseyKey:
+"headline" %}`. Repeated array items get their own `_uuid` on an untagged per-item
+wrapper. The same key must always render the same text — derive shared labels
+(tags, countdown units) one way everywhere.
+
+**Snippets and editor-only notices are never tagged.** A snippet renders inside a
+rich-text region that is already one translation, so its wrapper pipes the output
+through `roseyStrip`; `generic/notification` and `generic/styledText` carry no
+tags at all.
+
+**A post's markdown body is one translation.** `layouts/post.html` tags the
+`<article data-cms-edit="content">` with `roseyMarkdown: "post-body"` and the
+generated table of contents with `post-toc` (both TOC placements share the key).
+The per-post root on `<main>` keeps them unique, and snippets inside the body are
+already stripped, so nothing nests.
+
+**Keys are static, never derived from content.** A key is the `:`-joined chain of
+`data-rosey-root` / `data-rosey-ns` values above an element plus its own
+`data-rosey`, so a leaf key only has to be unique inside its own component. This
+is what lets the connector mark a translation *stale* when the source text
+changes, instead of orphaning it under a new key the way v1's slugified-text keys
+did. The piped value is still the text, used only to skip tagging empty elements.
+
+**Every component that renders text needs a per-instance namespace.** Add `_uuid:`
+to its blueprint and emit `{{ _uuid | roseyNs }}` on its root element; repeating
+items inside a component each need their own `_uuid` too. `_uuid` is declared once
+globally in `cloudcannon.config.yml` with `instance_value: UUID`, so CloudCannon
+fills it in as blocks are added — do not put a literal UUID in a blueprint.
+`_componentId` is NOT a substitute: it identifies a component *type*, so every
+instance shares one. Form inputs reuse their existing per-instance `id` instead.
+`npm run test:roseyIds` reports content blocks missing a `_uuid`.
+
+**Anything global must be translated once, not once per page.** Site chrome opens
+the shared `common` root (`{{ "common" | roseyRoot }}` on the header in
+`site-head.html` and the footer in `site-foot.html`), so `common:nav:home` is a
+single key across the whole site. Use `common:` for anything that reads the same
+everywhere: fixed UI strings (`common:ui:learn-more`, `common:ui:previous`), the
+site-wide banner, the tag taxonomy (`common:tag:<slug>`), countdown unit labels.
+Nav and footer links are keyed by their label (`common:nav:<label-slug>`,
+content-as-key), not their URL: placeholder links and Home all point at `/`, which
+sanitises to an empty key.
+Collection cards instead root on the item they render
+(`{% capture cardRoot %}item:{{ url }}{% endcapture %}`), so a post's title is one
+translation wherever its card appears. `<main>` opens a per-page root from the
+page URL — not the title, which would re-key the page when someone retitles it.
+
+Do not tag editor placeholder strings ("Add content to this section"); they are
+not site copy.
+
 ## Technology Preferences
 
 - **Interactivity/Logic:** Use [hyperscript](https://hyperscript.org) where possible. If hyperscript would be cumbersome or require workarounds, use vanilla JavaScript instead.

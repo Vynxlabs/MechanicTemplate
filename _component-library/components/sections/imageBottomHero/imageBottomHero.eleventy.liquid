@@ -1,5 +1,6 @@
 {% assign color_group = styles.color_group %}
 {% capture heading %}
+    _uuid: "{{ content.heading._uuid }}"
     content:
         highlightEyebrow: {{content.heading.content.highlightEyebrow}}
         eyebrow: {{content.heading.content.eyebrow| stringifyFilter}}
@@ -26,7 +27,7 @@
 
 
 
-<div class="c-imageBottomHero pb-20  text-{{styles.color_group}}-textcolor">
+<div class="c-imageBottomHero pb-20  text-{{styles.color_group}}-textcolor"{{ _uuid | roseyNs }}>
   <section class="flex h-full">
 
     {% if content.sectionId %}
@@ -41,7 +42,7 @@
           <div>
           <div class="text-{{styles.color_group}}-highcontrast-{{styles.topColorFromGroup}}color mt-5 flex flex-wrap justify-around gap-2 text-sm">
             {% for benefit in content.benefits %}
-              <p>{{ benefit }}</p>
+              {% comment %}`benefits` is an array of bare strings, so there is no stable id to key on; the text itself is the key and editing a benefit starts a new translation.{% endcomment %}{% capture benefitKey %}benefit:{{ benefit | slug }}{% endcapture %}<p{{ benefit | roseyTag: benefitKey }}>{{ benefit }}</p>
             {% endfor %}
         </div>
         {% capture imageClasses %}

@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
 const dateFilter = require("./src/filters/date-filter.js");
@@ -24,6 +26,8 @@ const docsModeFilter = require("./src/filters/docsDarkMode-filter.js");
 const jsonPathFilter = require("./src/filters/jsonPath-filter.js");
 const mime = require("mime-types");
 const sanitizeRssFilter = require("./src/filters/sanitizeRss-filter.js");
+const roseyFilters = require("./src/filters/rosey-filters.js");
+const { languageName } = require("./_component-library/bookshop/language-name.js");
 
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -484,6 +488,25 @@ module.exports = async function (eleventyConfig) {
   );
   eleventyConfig.addFilter("getMimeType", (path) => mime.lookup(path));
   eleventyConfig.addFilter("sanitizeRss", sanitizeRssFilter);
+
+  // Rosey i18n. All no-ops unless ROSEY_ENABLED === "true".
+  eleventyConfig.addFilter("roseyTag", roseyFilters.roseyTag);
+  eleventyConfig.addFilter("roseyWrap", roseyFilters.roseyWrap);
+  eleventyConfig.addFilter("roseyNs", roseyFilters.roseyNs);
+  eleventyConfig.addFilter("roseyRoot", roseyFilters.roseyRoot);
+  eleventyConfig.addFilter("roseyMarkdown", roseyFilters.roseyMarkdown);
+  eleventyConfig.addFilter("roseyAttrs", roseyFilters.roseyAttrs);
+  eleventyConfig.addFilter("roseyStrip", roseyFilters.roseyStrip);
+  // A locale's native name ("es" -> "Español"), for the language switcher.
+  // Shared with Bookshop's live engine; see the module for details.
+  eleventyConfig.addFilter("languageName", languageName);
+
+  // Rosey's working directory lives under src/ so CloudCannon can address the
+  // locale files against `source: src`, but base.json and the locales are
+  // translation data, not site input. Rosey reads them straight off disk after
+  // Eleventy has finished.
+  eleventyConfig.ignores.add("src/rosey/**");
+
 
   // Load and flatten tokens
   const tokens = loadTokens();

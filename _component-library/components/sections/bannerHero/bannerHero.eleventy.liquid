@@ -2,6 +2,7 @@
 {% endcapture %}
 {% assign color_group = styles.color_group %}
 {% capture heading %}
+    _uuid: "{{ content.heading._uuid }}"
     content:
         highlightEyebrow: {{content.heading.content.highlightEyebrow}}
         eyebrow: {{content.heading.content.eyebrow | stringifyFilter}}

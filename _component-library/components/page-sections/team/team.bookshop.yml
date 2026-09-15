@@ -12,6 +12,7 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   _componentId: team-2b279f6c-f90f-47b7-a65b-0261a2ebee8e
+  _uuid:
   content:
     label:
     sectionId:
@@ -19,7 +20,8 @@ blueprint:
     heading: "Meet Our Team"
     description: "The people behind the magic."
     members:
-      - name: "John Smith"
+      - _uuid:
+        name: "John Smith"
         role: "CEO & Founder"
         bio:
         image:

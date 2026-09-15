@@ -87,12 +87,12 @@
 {% block content %}
 
 <div class=" mt-40">
-  <h1 data-editable="text" data-prop="title" class=" text-3xl sm:text-5xl font-semibold md:text-8xl" >{{title}}</h1>
+  <h1 data-editable="text" data-prop="title" class=" text-3xl sm:text-5xl font-semibold md:text-8xl"{{ title | roseyTag: "post-title" }} >{{title}}</h1>
   {% bookshop "generic/image" bind: image class: blogImageClasses  %}
   <div class="flex gap-2 mt-4">
     {% bookshop "generic/image" imagePath: blogAuthor.imagePath imageAlt: blogAuthor.name  class: "rounded object-cover aspect-square w-20 "  %}
     <div class="flex flex-col justify-between">
-      <p>written by {{blogAuthor.name}}</p>
+      <p{{ "common" | roseyRoot }}>{{ "written by" | roseyWrap: "ui:written-by-lower" }} {{blogAuthor.name}}</p>
       <time class="" datetime="{{ blogDate | date: "%Y-%m-%d" }}">{{ blogDate | date: "%B %d, %Y" }}</time>
     </div>
   </div>
@@ -126,6 +126,12 @@
 
     {% assign bookshopTOC = bookshopContent | toc %}
     {% assign contentTOC = content | toc %}
+    {%- comment -%}
+    Rosey: the TOC is generated from the headings, so on a translated page it
+    would otherwise stay in the source language. Both TOC placements render the
+    same markup, so they share one `post-toc` key and one translation.
+    {%- endcomment -%}
+    {% capture postTOC %}{{ bookshopTOC }}{{ contentTOC }}{% endcapture %}
 
     {%- comment -%}
     Determine if any TOC exists (either from editorial blocks or markdown content)
@@ -169,7 +175,7 @@
             end
           "
         >
-          <span class="text-sm opacity-80">On This Page</span>
+          <span class="text-sm opacity-80"{{ "common" | roseyRoot }}>{{ "On This Page" | roseyWrap: "ui:on-this-page" }}</span>
           <span id="toc-dropdown-arrow" class="transition-transform duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -181,9 +187,8 @@
           aria-expanded="false"
           class="absolute top-full left-1 mt-1 w-[calc(100%-8px)] bg-{{site.color_group}}-backgroundcolor border border-opacity-50 border-{{site.color_group}}-textcolor {{theme.container_rounding}} shadow-lg transition-all duration-300 origin-top invisible scale-y-0 max-h-[60vh] overflow-y-auto z-10"
         >
-          <div class="px-4 py-2 opacity-80 text-sm">
-            {{ bookshopTOC }}
-            {{ contentTOC }}
+          <div class="px-4 py-2 opacity-80 text-sm"{{ postTOC | roseyMarkdown: "post-toc" }}>
+            {{ postTOC }}
           </div>
         </div>
       </div>
@@ -210,8 +215,15 @@
 
             {% bookshop_include "doc" editorial_blocks: editorial_blocks %}
 
+            {%- comment -%}
+              Rosey: the markdown body is one rich-text region, tagged as a single
+              `post-body` block so editors get one rich-text translation for it.
+              Snippets rendered inside it strip their own tags (see roseyStrip),
+              so nothing nests. The key is static; the per-post root on <main>
+              (the page URL) keeps it unique per post.
+            {%- endcomment -%}
             {% if content and content != "" %}
-              <article data-cms-edit="content" class="">
+              <article data-cms-edit="content" class=""{{ content | roseyMarkdown: "post-body" }}>
                 {{ content }}
               </article>
             {% endif %}
@@ -225,10 +237,9 @@
       {% if tocExists %}
       <aside class="hidden xl:block w-72 shrink-0"> 
         <div class="sticky overflow-y-auto max-h-[80vh] top-24 flex flex-col gap-4">
-          <p class="text-sm font-semibold opacity-75">On this page</p>
-          <div class="opacity-80 text-sm">
-            {{ bookshopTOC }}
-            {{ contentTOC }}
+          <p class="text-sm font-semibold opacity-75"{{ "common" | roseyRoot }}>{{ "On this page" | roseyWrap: "ui:on-this-page-lower" }}</p>
+          <div class="opacity-80 text-sm"{{ postTOC | roseyMarkdown: "post-toc" }}>
+            {{ postTOC }}
           </div>
         </div>
       </aside>
