@@ -35,6 +35,7 @@
    "gen-imageModal-c49df043-0e10-45b2-bf0a-fa8bb144e2c5": "snippets/generator/gen-imageModal",
    "textContrastScript-98e5e186-2e9b-460b-82d1-10cd6cd8846e": "util/textContrastScript",
    "IdScrollEvent-6953b245-8fee-410f-9fda-1b06d22d7b80": "util/IdScrollEvent",
+   "languageSwitcher-0f2a6c1d-9e47-4b28-8c53-6a0d7f1b4e92": "generic/languageSwitcher",
    "cleanCard-a3789a3f-7ccb-4d70-9c6f-cdf3da71d7de": "generic/services/cleanCard",
    "defaultCard-a7a1c8cb-51eb-435b-ac0a-9c96797532b7": "generic/services/defaultCard",
    "image-c1cbbc3b-f7dc-4577-8f8f-c37dd7943db2": "generic/image",
