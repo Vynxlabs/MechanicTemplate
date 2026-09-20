@@ -20,6 +20,7 @@
    {% endif %} 
 {% endcapture %}
 {% capture heading %}
+    _uuid: "{{ content.heading._uuid }}"
     content:
         highlightEyebrow: {{content.heading.content.highlightEyebrow}}
         eyebrow: {{content.heading.content.eyebrow| stringifyFilter}}

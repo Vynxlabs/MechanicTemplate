@@ -10,6 +10,7 @@
 {%- if content.badge -%}
   {%- capture badgeBlock -%}
 _bookshop_name: building-blocks/core-elements/badge
+_uuid: "{{ _uuid }}-badge"
 content:
     text: {{ content.badge | stringifyFilter }}
 styles:
@@ -24,6 +25,7 @@ styles:
 {%- if content.heading -%}
   {%- capture headingBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ _uuid }}-heading"
 content:
     text: {{ content.heading | stringifyFilter }}
     level: h2
@@ -39,6 +41,7 @@ styles:
 {%- if content.description -%}
   {%- capture descBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ _uuid }}-description"
 content:
     text: {{ content.description | stringifyFilter }}
 styles:

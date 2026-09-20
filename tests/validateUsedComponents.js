@@ -4,7 +4,13 @@ const yaml = require("js-yaml");
 const matter = require("gray-matter");
 
 const componentsDir = "./_component-library/components";
-const pagesDirs = ["./src/pages", "./src/services", "./src/happenings", "./src/listings"];
+const pagesDirs = [
+  "./src/pages",
+  "./src/posts",
+  "./src/services",
+  "./src/happenings",
+  "./src/listings",
+];
 const componentBlueprints = {};
 const componentsInUse = [];
 let hasWarnings = false;
@@ -53,7 +59,11 @@ const collectComponentsInUse = (dir) => {
       const fileContent = fs.readFileSync(filePath, "utf8");
       const { data: frontMatter } = matter(fileContent);
 
-      // Collect components used in hero and content_blocks
+      // Collect the `hero` object plus every top-level array of Bookshop
+      // blocks: content_blocks, extra_blocks, a post's editorial_blocks, and
+      // any future structure. Discovering them by shape rather than by name
+      // means a new block array is validated (and gets its _uuid backfill)
+      // without anyone remembering to list it here.
       if (frontMatter.hero && frontMatter.hero._bookshop_name) {
         componentsInUse.push({
           component: frontMatter.hero,
@@ -62,13 +72,16 @@ const collectComponentsInUse = (dir) => {
         });
       }
 
-      if (frontMatter.content_blocks) {
-        frontMatter.content_blocks.forEach((block, index) => {
-          if (block._bookshop_name) {
+      for (const [key, value] of Object.entries(frontMatter)) {
+        if (!Array.isArray(value)) {
+          continue;
+        }
+        value.forEach((block, index) => {
+          if (block && typeof block === "object" && block._bookshop_name) {
             componentsInUse.push({
               component: block,
               filename: filePath,
-              type: "content_blocks",
+              type: key,
               index,
             });
           }
@@ -91,6 +104,11 @@ const validateAndResolveParameters = (
   for (const key in usedParameters) {
     if (key === "_bookshop_name") {
       continue; // Skip _bookshop_name key
+    }
+    // A null OR empty `_uuid` is a block whose namespace would silently fall
+    // back to its parent's, so both get a fresh id.
+    if (key === "_uuid" && !usedParameters[key]) {
+      usedParameters[key] = crypto.randomUUID();
     }
 
     const paramValue = usedParameters[key];
@@ -172,11 +190,16 @@ const validateAndResolveParameters = (
       if (
         blueprintParameters[key] === null ||
         blueprintParameters[key] === undefined ||
-      (typeof blueprintParameters[key] === 'string' && blueprintParameters[key].includes("bookshop:")) || 
-      (Array.isArray(blueprintParameters[key]) && blueprintParameters[key][0]?.includes("bookshop:")) 
+        (typeof blueprintParameters[key] === "string" &&
+          blueprintParameters[key].includes("bookshop:")) ||
+        (Array.isArray(blueprintParameters[key]) &&
+          blueprintParameters[key][0]?.includes("bookshop:"))
       ) {
         blueprintParameters[key] = null; // Set to null to allow cloud cannon to handle inputs in the UI
         usedParameters[key] = blueprintParameters[key]; // Add missing parameter
+        if (key === "_uuid" && blueprintParameters[key] === null) {
+          usedParameters[key] = crypto.randomUUID();
+        }
       } else {
         usedParameters[key] = blueprintParameters[key];
       }
@@ -224,22 +247,13 @@ componentsInUse.forEach(({ component, filename, type, index }) => {
 
   if (type === "hero") {
     frontMatter.hero = component;
-  } else if (type === "content_blocks") {
-    if (
-      index !== undefined &&
-      frontMatter.content_blocks[index]._bookshop_name ===
-        component._bookshop_name
-    ) {
-      frontMatter.content_blocks[index] = component;
-    } else {
-      const blockIndex = frontMatter.content_blocks.findIndex(
-        (block, i) =>
-          i === index && block._bookshop_name === component._bookshop_name,
-      );
-      if (blockIndex !== -1) {
-        frontMatter.content_blocks[blockIndex] = component;
-      }
-    }
+  } else if (
+    Array.isArray(frontMatter[type]) &&
+    index !== undefined &&
+    frontMatter[type][index] &&
+    frontMatter[type][index]._bookshop_name === component._bookshop_name
+  ) {
+    frontMatter[type][index] = component;
   }
 
   const newFrontMatter = matter.stringify(content, frontMatter);

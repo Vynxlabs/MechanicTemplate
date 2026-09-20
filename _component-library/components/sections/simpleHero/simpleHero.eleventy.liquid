@@ -1,5 +1,6 @@
 {% assign color_group = site.color_group %}
 {% capture heading %}
+    _uuid: "{{ heading._uuid }}"
     content:
         highlightEyebrow: {{heading.content.highlightEyebrow}}
         eyebrow: {{heading.content.eyebrow| stringifyFilter}}

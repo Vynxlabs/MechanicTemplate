@@ -1,3 +1,8 @@
+{%- comment -%}
+  Not Rosey-tagged on purpose: every call site renders this only under
+  env_bookshop_live, so it is editor UI, not site copy. Tagging it would offer
+  editors keys that never exist in the build.
+{%- endcomment -%}
 <div class="bg-cyan-100 border border-cyan-700 p-4 flex">
     {% bookshop "generic/heroLibraryIcon" hero_library_icon_name:"information-circle" icon_type:"solid" icon_size:"small" rounded_border:false color:"#DE4E63" %}
     <div class="  text-left">

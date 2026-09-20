@@ -12,6 +12,7 @@ spec:
 # Defines the structure of this component, as well as the default values
 blueprint:
   _componentId: feature-201314fc-975f-4bf0-98a5-23a724356266
+  _uuid:
   content:
     label:
     sectionId:
@@ -19,13 +20,16 @@ blueprint:
     heading: "Features"
     description: "Everything you need to succeed."
     features:
-      - icon: "bolt"
+      - _uuid:
+        icon: "bolt"
         title: "Lightning Fast"
         description: "Optimized performance for the best user experience."
-      - icon: "shield-check"
+      - _uuid:
+        icon: "shield-check"
         title: "Secure"
         description: "Enterprise-grade security built-in."
-      - icon: "sparkles"
+      - _uuid:
+        icon: "sparkles"
         title: "Beautiful Design"
         description: "Modern aesthetics that delight users."
   styles:

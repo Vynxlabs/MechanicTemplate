@@ -2,6 +2,7 @@
 {% assign layout = layout | default: "simple" %}
 
 {% capture heading %}
+    _uuid: ""
     content:
         highlightEyebrow: {{content.highlightEyebrow}}
         eyebrow: {{content.eyebrow | stringifyFilter}}

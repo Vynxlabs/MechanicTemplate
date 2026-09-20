@@ -10,6 +10,7 @@
 {%- if content.badge -%}
   {%- capture badgeBlock -%}
 _bookshop_name: building-blocks/core-elements/badge
+_uuid: "{{ _uuid }}-badge"
 content:
     text: {{ content.badge | stringifyFilter }}
 styles:
@@ -24,6 +25,7 @@ styles:
 {%- if content.heading -%}
   {%- capture headingBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ _uuid }}-heading"
 content:
     text: {{ content.heading | stringifyFilter }}
     level: h2
@@ -39,6 +41,7 @@ styles:
 {%- if content.description -%}
   {%- capture descBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ _uuid }}-description"
 content:
     text: {{ content.description | stringifyFilter }}
 styles:
@@ -70,6 +73,7 @@ size: lg
     {%- if member.image -%}
       {%- capture imageBlock -%}
 _bookshop_name: building-blocks/core-elements/image
+_uuid: "{{ member._uuid }}-image"
 content:
     source: {{ member.image }}
     alt: {{ member.name | stringifyFilter }}
@@ -83,6 +87,7 @@ styles:
     {%- if member.name -%}
       {%- capture nameBlock -%}
 _bookshop_name: building-blocks/core-elements/heading
+_uuid: "{{ member._uuid }}-name"
 content:
     text: {{ member.name | stringifyFilter }}
     level: h3
@@ -97,6 +102,7 @@ styles:
     {%- if member.role -%}
       {%- capture roleBlock -%}
 _bookshop_name: building-blocks/core-elements/simple-text
+_uuid: "{{ member._uuid }}-role"
 content:
     text: {{ member.role | stringifyFilter }}
 styles:
@@ -110,6 +116,7 @@ styles:
     {%- if member.bio -%}
       {%- capture bioBlock -%}
 _bookshop_name: building-blocks/core-elements/text
+_uuid: "{{ member._uuid }}-bio"
 content:
     text: {{ member.bio | stringifyFilter }}
 styles:
@@ -122,7 +129,7 @@ styles:
     {%- comment -%} Wrap in grid-item {%- endcomment -%}
     {%- capture gridItemBlock -%}
 _bookshop_name: building-blocks/wrappers/grid/grid-item
-contentSections:
+gridContentSections:
     {{ memberContentSections | json }}
     {%- endcapture -%}
     {%- assign gridItemObj = gridItemBlock | ymlify -%}

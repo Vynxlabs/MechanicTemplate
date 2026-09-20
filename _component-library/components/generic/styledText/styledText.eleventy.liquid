@@ -1,1 +1,6 @@
+{%- comment -%}
+  Not Rosey-tagged on purpose: this only ever renders as the inline `styledText`
+  snippet inside rich text, and that surrounding region is already tagged as one
+  translation. A tag in here would nest inside it.
+{%- endcomment -%}
 <span class="{{style}}">{{text}}</span>
